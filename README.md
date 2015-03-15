@@ -25,8 +25,8 @@ Para executar o CloudGI é necessário seguir as instruções abaixo:
 - Depois execute o CloudGI-Desktop. Clique no botão "Iniciar monitoramento" para visualizar e iniciar o monitoramneto das réplicas. 
 
 * A  outra forma de é executando os arquivos war e jar clicando ou executando os comando abaixo
-- Para a aplicação é necessário implantar a aplicação no GlassFish usando o seguinte comando: "asadmin deploy endereço_do_diretório_que_foi_salvo_claoudGI\dist\CloudGI.war" e depois acessar: http://localhost:8080/CloudGI/faces/Paginas/index.xhtml
-- Execute o seguinte comando: java -jar "endereço_do_diretório_que_foi_salvo_claoudGI\CloudGI_Desktop\dist\CloudGI.jar"
+- Para a aplicação é necessário implantar a aplicação no GlassFish usando o seguinte comando: "asadmin deploy endereço_do_diretório_que_foi_salvo_cloudGI\dist\CloudGI.war" e depois acessar: http://localhost:8080/CloudGI/faces/Paginas/index.xhtml
+- Execute o seguinte comando: java -jar "endereço_do_diretório_que_foi_salvo_cloudGI\CloudGI_Desktop\dist\CloudGI.jar"
 Obs.: Para essa opção é necessario instalar e iniciar o glassfissh e o serviço de banco de dados 
 
 5 - Para fins de teste, seria interessante, reiniciar, pausar, arquivar, suspender e desligar as instâncias. Para isso utilize os seguintes comandos no terminal do Servidor linux que está instalado o openstack:
