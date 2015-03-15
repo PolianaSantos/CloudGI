@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title><ui:insert name="title">Gerenciador</ui:insert></title>
+
+            <link rel="stylesheet" href="css/style.css" type="text/css"/>
+        </h:head>
+
+        <h:body>
+            <h:form>
+                <div id="header">
+                    <div>
+                        <div class="logo">
+                            <a href="home.xhtml"></a>
+                        </div>
+                        <ul id="navigation">
+                            <li>
+                                <a href="home.xhtml" class="active">Inicio</a>
+                            </li>
+                            <li>
+                                <a href="service.xhtml">Serviços</a>
+                            </li>
+                            <li>
+                                <a href="manager.xhtml">Gerenciar</a>
+                            </li>
+                            <li>
+                                <a href="configurations.xhtml">Configurações</a>
+                            </li>
+                            
+                            <li>
+                                <a href="login.xhtml">Sair</a>
+                            </li>
+                   
+                        </ul>
+                    </div>
+
+                </div>
+
+            </h:form>
+            <div align="center"> 
+                <div style="width: 1000px" align="left">
+
+                    <ui:insert name="title">Default Title</ui:insert>
+
+                    <p>
+                    <ui:insert name="body">Default Body</ui:insert>
+                    </p>
+                </div>
+            </div>
+
+        </h:body>
+    </f:view>
+
+</html>

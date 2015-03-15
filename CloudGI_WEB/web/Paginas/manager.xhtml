@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/tamplete.xhtml">
+       <ui:define name="title">
+            <h:outputText value=""></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+
+
+            
+            <h:form>
+<table border="0">
+                    <tr>
+                        <td><h3>Gerenciar  </h3></td>
+                        <td><img src="images/conf.png"/> </td>
+                    </tr>
+                </table>
+                <p:accordionPanel id="panel">
+                    <p:tab title="Lista de Instâncias" >
+
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <p:dataTable var="instancia" value="#{instUser.list}" style="margin-bottom:40px">
+                                <f:facet name="header">
+                                    Lista de Instâncias
+                                </f:facet>
+                                <p:column headerText="Nome" sortBy="#{instancia.name}">
+                                    <h:outputText value="#{instancia.name}" />
+                                </p:column>
+
+                                <p:column headerText="IP" sortBy="#{instancia.ip}">
+                                    <h:outputText value="#{instancia.ip}" />
+                                </p:column>
+
+                                <p:column headerText="Status" sortBy="#{instancia.status}">
+                                    <h:outputText value="#{instancia.status}" />
+                                </p:column>
+
+                                <p:column headerText="Falha" sortBy="#{instancia.fault}">
+                                    <h:outputText value="#{instancia.fault}" />
+                                </p:column>
+
+                                <p:column headerText="Serviço" sortBy="#{instancia.service}">
+                                    <h:outputText value="#{instancia.service}" />
+                                </p:column>
+
+                                <p:column headerText="Imagem" sortBy="#{instancia.image}">
+                                    <h:outputText value="#{instancia.image}" />
+                                </p:column>
+                                <p:column headerText="Tamanho" sortBy="#{instancia.flavor}">
+                                    <h:outputText value="#{instancia.flavor}" />
+                                </p:column>
+                            </p:dataTable>
+
+                        </h:panelGrid>
+                    </p:tab>
+                    <p:tab title="Excluir Serviço">
+                        <p:messages />
+                        <p:growl id="msgs" showDetail="true" />
+                        <p:ajaxStatus style="width:16px;height:16px;">  
+                            <f:facet name="start">  
+                                <h:graphicImage value="images/Waiting.gif" />  
+                            </f:facet>  
+
+                            <f:facet name="complete">  
+                                <h:outputText value="" />  
+                            </f:facet>  
+                        </p:ajaxStatus>
+
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <h:outputLabel for="excluir" value="Excluir : "   style="font-weight:bold"/>
+                            <p:selectOneMenu id="excluir" value="#{instUser.map}" style="width:300px">                       
+                                <f:selectItem itemLabel="Selecione o serviço" itemValue="" noSelectionOption="true" />
+                                <f:selectItems value="#{instUser.maps}" />
+                            </p:selectOneMenu>
+                            <p:commandButton value="Excluir Serviço" update="panel" actionListener="#{instUser.displayLocation}" icon="ui-icon-check"/>
+
+                        </h:panelGrid>
+                    </p:tab>                   
+                </p:accordionPanel>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div align="center" style="background-color: #E8E8E8;">
+                <table width="1200">
+                <tr>
+                    <td align="left"><img src="images/logo.png"/>
+                    </td> 
+                    <td align="right">
+                        <br/><br/><p:commandButton value="Acessar o Sistema" action="login.xhtml"  style="width:260px; height: 40px; font-size: 18px"/><br/><br/><br/><br/>
+                    </td>
+                </tr>
+
+            </table>
+</div>
+
+            <div align="center">
+                <div class="body">  
+                    <div>
+                        <div>
+                            <p:growl id="msgs" showDetail="true" />
+                              
+                                <br/><br/><br/><br/>
+                                <h:outputLabel for="name" value="Cadastro" style="font-size: 34px" />
+                                <br/><br/>
+                                <h:panelGrid columns="1" cellpadding="2">
+
+                                    <h:outputLabel for="name" value="Nome Completo*:" />
+                                    <p:inputText id="name" style="width:350px; height: 25px" value="#{registerProfile.name}"/>
+                                    <h:outputLabel for="email" value="E-mail*:" />
+                                    <p:inputText id="email" style="width:350px; height: 25px" value="#{registerProfile.email}"/>
+                                    <h:outputLabel for="login" value="Login*:"/>
+                                    <p:inputText id="login" style="width:350px; height: 25px" value="#{registerProfile.login}"/>
+                                    <h:outputLabel for="senhaA" value="Senha *: " />
+                                    <p:password id="pwd1" value="#{registerProfile.password}" label="Nova senha" style="width:350px; height: 25px"/>
+
+                                    <h:outputLabel for="senhaC" value="Confirmar Senha*: "/>
+                                    <p:password id="pwd2" value="#{registerProfile.confirmPassword}" label="Confirmação de senha" style="width:350px; height: 25px"/>
+<br/>
+                                    <p:commandButton value="Salvar" update="msgs" actionListener="#{registerProfile.displayLocation}" style="width:360px; height: 40px; font-size: 16px"/>
+                                </h:panelGrid>
+                            
+                        </div></div>
+                </div>   
+            </div>
+        </h:form>
+    </h:body>
+</html>

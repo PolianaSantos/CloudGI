@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/tamplete.xhtml">
+        <ui:define name="title">
+            <h:outputText value=""></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+
+                <table border="0">
+                    <tr>
+                        <td><h3>Configurações  </h3></td>
+                        <td><img src="images/conf.png"/> </td>
+                    </tr>
+                </table>
+                <p:accordionPanel>
+                    <p:tab title="Alterar Perfil" >
+                        <p:growl id="msgs" showDetail="true" />
+                        <h:panelGrid columns="2" cellpadding="10">
+
+                            <h:outputLabel for="name" value="Nome Completo*:" />
+                            <p:inputText id="name" style="width:450px" value="#{updateProfile.name}"/>
+                            <h:outputLabel for="email" value="E-mail*:" />
+                            <p:inputText id="email" style="width:450px" value="#{updateProfile.email}"/>
+                            <h:outputLabel for="login" value="Login:"/>
+                            <p:inputText id="login" style="width:450px" value="#{updateProfile.login}" disabled="true"/>
+
+                            <p:commandButton value="Salvar" update="msgs" actionListener="#{updateProfile.displayLocation}" icon="ui-icon-refresh"/>
+                        </h:panelGrid>
+                    </p:tab>
+                    <p:tab title="Mudar Senha">
+
+                        <h:panelGrid columns="2" cellpadding="10">
+
+                            <h:outputLabel for="senha" value="Senha Atual*: " />
+                            <p:password id="senha" style="width:250px" value="#{changePassword.oldPassword}"/>
+                           
+                            <h:outputLabel for="senhaA" value="Nova Senha *: " />
+                            <p:password id="pwd1" value="#{changePassword.currentPassword}" match="pwd2" label="Nova senha" style="width:250px"/>
+
+                             <h:outputLabel for="senhaC" value="Confirmar Senha*: "/>
+                             <p:password id="pwd2" value="#{changePassword.confirmPassword}" label="Confirmação de senha" />
+
+                             <p:commandButton value="Mudar" update="msgs" actionListener="#{changePassword.displayLocation}" icon="ui-icon-refresh" style="width:250px"/>
+                        </h:panelGrid>
+                    </p:tab>                   
+                </p:accordionPanel>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
