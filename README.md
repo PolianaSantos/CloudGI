@@ -18,8 +18,22 @@ Para executar o CloudGI é necessário seguir as instruções abaixo:
 * Usuário: devstack, Senha: openstack123. Isto porque estes, estão configurados na aplicação para acesso a base de dados;
 * Execute o script para gerar as tabelas e inserir dados necessários para o funcionamento da aplicação.
 
-4 - Execute a aplicação web, cadastre um usuário, inicie um serviço para o mesmo.
+4 - Para executar a aplicação existem duas formas:
+* No ambiente de desenvolvimento integrado Netbeans abra os dois projetos: O CloudGI web e o desktop
+- Execute primeiro o CloudGI web para iniciar o glassfish e o serviço de base de dados que também será utilizado pelo CloudGI Desktop;
+- Cadastre um usuário, inicie um serviço para o mesmo;
+- Depois execute o CloudGI-Desktop. Clique no botão "Iniciar monitoramento" para visualizar e iniciar o monitoramneto das réplicas. 
 
-5 - Execute a aplicação desktop e clique em iniciar monitoramento.
+* A  outra forma de é executando os arquivos war e jar clicando ou executando os comando abaixo
+- Para a aplicação é necessário implantar a aplicação no GlassFish usando o seguinte comando: "asadmin deploy endereço_do_diretório_que_foi_salvo_claoudGI\dist\CloudGI.war" e depois acessar: http://localhost:8080/CloudGI/faces/Paginas/index.xhtml
+- Execute o seguinte comando: java -jar "endereço_do_diretório_que_foi_salvo_claoudGI\CloudGI_Desktop\dist\CloudGI.jar"
+Obs.: Para essa opção é necessario instalar e iniciar o glassfissh e o serviço de banco de dados 
+
+5 - Para fins de teste, seria interessante, reiniciar, pausar, arquivar, suspender e desligar as instâncias. Para isso utilize os seguintes comandos no terminal do Servidor linux que está instalado o openstack:
+- nova reboot nomeInstancia;
+- nova pause nomeInstancia;
+- nova shelve nomeInstancia;
+- nova suspende nomeInstancia;
+- nova stop nomeInstancia.
 
 Obs.: O serviço da openstack instalado pelo script da devstack, só permite instanciar no máximo 10 réplicas. É necessário iniciar o serviço de base de dados para executar o CloudGI-Desktop, para isso executar primeiro a aplicação web que a mesma inicia.
