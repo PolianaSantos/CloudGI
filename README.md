@@ -29,11 +29,24 @@ Para executar o CloudGI é necessário seguir as instruções abaixo:
 - Execute o seguinte comando: java -jar "endereço_do_diretório_que_foi_salvo_claoudGI\CloudGI_Desktop\dist\CloudGI.jar"
 Obs.: Para essa opção é necessario instalar e iniciar o glassfissh e o serviço de banco de dados 
 
-5 - Para fins de teste, seria interessante, reiniciar, pausar, arquivar, suspender e desligar as instâncias. Para isso utilize os seguintes comandos no terminal do Servidor linux que está instalado o openstack:
-- nova reboot nomeInstancia;
-- nova pause nomeInstancia;
-- nova shelve nomeInstancia;
-- nova suspende nomeInstancia;
-- nova stop nomeInstancia.
+5 - A aplicação web apresenta as seguintes funcionalidades:
+* Casdastrar usuário;
+* Cadastrar serviço: nesta opção, um serviço é iniciado passando como parâmetros: nome do grupo de instâncias, tipo de falha, serviço, imagem e flavor;
+* Monitorar as réplicas instanciadas;
+* Excluir um serviço.
+
+6 - A aplicação desktop apresenta as seguintes funcionalidades:
+* Iniciar monitoramento de instâncias;
+* Excluir uma instância;
+* Listar instâncias no servidor;
+* Reiniciar uma instância;
+* Criar uma instância.
+
+7 - Para fins de teste, seria interessante, reiniciar, pausar, arquivar, suspender e desligar as instâncias. Para isso utilize os seguintes comandos no terminal do Servidor linux que está instalado o openstack:
+$ nova reboot nomeInstancia;
+$ nova pause nomeInstancia;
+$ nova shelve nomeInstancia;
+$ nova suspende nomeInstancia;
+$ nova stop nomeInstancia.
 
 Obs.: O serviço da openstack instalado pelo script da devstack, só permite instanciar no máximo 10 réplicas. É necessário iniciar o serviço de base de dados para executar o CloudGI-Desktop, para isso executar primeiro a aplicação web que a mesma inicia.
